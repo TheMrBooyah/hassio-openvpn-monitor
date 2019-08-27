@@ -20,18 +20,19 @@ RUN apk add --no-cache geoip
 
 # Prepare config
 COPY confd /etc/confd
+COPY entrypoint.sh /
 
 # Create admin account
-RUN useradd -ms /bin/bash admin
+RUN adduser -DH admin
 RUN chown -R admin:admin /openvpn-monitor
 RUN chmod 755 /openvpn-monitor
-RUN chmod 755 +x /openvpn-monitor/entrypoint.sh
+RUN chmod +x /entrypoint.sh
 USER admin
 
 WORKDIR /openvpn-monitor
 
 EXPOSE 80
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["gunicorn", "openvpn-monitor", "--bind", "0.0.0.0:80"]
