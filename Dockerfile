@@ -4,7 +4,8 @@ FROM $BUILD_FROM
 ENV GOPATH /opt/go
 
 # Install dependencies
-RUN apk add --no-cache --virtual .build-dependencies gcc linux-headers python2-dev py-pip geoip-dev openssl tar curl go git musl-dev \
+RUN apk add --no-cache --virtual .build-dependencies gcc linux-headers geoip-dev openssl tar curl go git musl-dev \
+  && apk add --no-cache python2-dev py-pip \
   && go get -u github.com/quantumew/mustache-cli \
   && cp $GOPATH/bin/* /usr/local/bin/ \
   && rm -rf $GOPATH 
@@ -21,7 +22,7 @@ WORKDIR /openvpn-monitor
 # Prepare environment
 RUN pip install openvpn-monitor gunicorn
 RUN apk del .build-dependencies
-RUN apk add --no-cache geoip python2
+RUN apk add --no-cache geoip
 
 EXPOSE 80
 
