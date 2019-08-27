@@ -33,6 +33,6 @@ WORKDIR /openvpn-monitor
 
 EXPOSE 80
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["gunicorn", "openvpn-monitor", "--bind", "0.0.0.0:80"]
