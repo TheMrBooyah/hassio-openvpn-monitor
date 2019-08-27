@@ -18,6 +18,7 @@ RUN apk add --no-cache --virtual .build-dependencies gcc linux-headers geoip-dev
 # Copy app
 RUN mkdir /openvpn-monitor 
 COPY . /openvpn-monitor
+RUN rm /openvpn-monitor/GeoIP.conf
 
 # Prepare config
 COPY server.mustache /templates/
