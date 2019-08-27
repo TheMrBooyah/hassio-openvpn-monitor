@@ -29,8 +29,8 @@ RUN apk add --no-cache geoip
 
 EXPOSE 80
 
-RUN chmod a+x /run.sh
+RUN chmod a+x run.sh
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["run.sh"]
 
 CMD ["gunicorn", "openvpn-monitor", "--bind", "0.0.0.0:80"]
