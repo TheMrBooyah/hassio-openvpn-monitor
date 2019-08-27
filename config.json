@@ -6,23 +6,42 @@
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "system",
   "boot": "auto",
-  "options": {},
-  "environment": {
-	"OPENVPNMONITOR_DEFAULT_DATETIMEFORMAT":"%%d/%%m/%%Y",
-	"OPENVPNMONITOR_DEFAULT_LATITUDE": "-37",
-	"OPENVPNMONITOR_DEFAULT_LOGO":"logo.jpg",
-	"OPENVPNMONITOR_DEFAULT_LONGITUDE":"144",
-	"OPENVPNMONITOR_DEFAULT_MAPS":true,
-	"OPENVPNMONITOR_DEFAULT_SITE":"Test",
-	"OPENVPNMONITOR_SITES_0_ALIAS":"UDP",
-	"OPENVPNMONITOR_SITES_0_HOST":"openvpn-udp",
-	"OPENVPNMONITOR_SITES_0_NAME":"5555",
-	"OPENVPNMONITOR_SITES_1_ALIAS":"TCP",
-	"OPENVPNMONITOR_SITES_1_HOST":"openvpn-udp",
-	"OPENVPNMONITOR_SITES_1_NAME":"TCP",
-	"OPENVPNMONITOR_SITES_1_PORT":"5555"
+  "options": {
+	"site": "Example",
+	"logo": "logo.jpg",
+	"latitude": "40.72",
+	"longitude": "-74",
+	"maps": true,
+	"geoip_data": "/var/lib/GeoIP/GeoLite2-City.mmdb",
+	"datetime_format":"%d/%m/%Y %H:%M:%S",
+	"vpns": [
+		{ 
+			"configName": "VPN1",
+			"host": "127.0.0.1",
+			"port": 5555,
+			"name": "Staff VPN",
+			"show_disconnect": false
+		}
+	]
   },
-  "schema": {},
+  "schema": {
+	"site": "str",
+	"logo": "str",
+	"latitude": "str",
+	"longitude": "str",
+	"maps": "bool",
+	"geoip_data": "str",
+	"datetime_format": "str",
+	"vpns": [
+		{
+			"configName": "str",
+			"host": "str",
+			"port": "port",
+			"name": "str",
+			"show_disconnect": "bool"
+		}
+	]
+  },
   "ports": {
 	"80/tcp": 80
 	},

@@ -17,6 +17,9 @@ COPY . /openvpn-monitor
 # Prepare config
 COPY server.mustache /templates/
 
+# Add generator script
+COPY run.sh /
+
 WORKDIR /openvpn-monitor
 
 # Prepare environment
@@ -26,6 +29,8 @@ RUN apk add --no-cache geoip
 
 EXPOSE 80
 
-#ENTRYPOINT ["/entrypoint.sh"]
+RUN chmod a+x /run.sh
+
+ENTRYPOINT ["/run.sh"]
 
 CMD ["gunicorn", "openvpn-monitor", "--bind", "0.0.0.0:80"]

@@ -1,14 +1,22 @@
 [openvpn-monitor]
-site=Example
-#logo=logo.jpg
-#latitude=40.72
-#longitude=-74
-maps=True
-geoip_data=/var/lib/GeoIP/GeoLite2-City.mmdb
-datetime_format=%d/%m/%Y %H:%M:%S
+site={{site}}
+{{#logo}}
+logo={{logo}}
+{{/logo}}
+{{#latitude}}
+latitude={{latitude}}
+{{/latitude}}
+{{#longitude}}
+longitude={{longitude}}
+{{/longitude}}
+maps={{maps}}
+geoip_data={{geoip_data}}
+datetime_format={{datetime_format}}
 
-[VPN1]
-host=10.72.0.49
-port=5555
-name=Staff VPN
-show_disconnect=False
+{{#vpns}}
+[{{configName}}]
+host={{host}}
+port={{port}}
+name={{name}}
+show_disconnect={{show_disconnect}}
+{{/vpns}}
