@@ -13,15 +13,15 @@ RUN apk add --no-cache --virtual .build-dependencies gcc linux-headers python2-d
 RUN mkdir /openvpn-monitor 
 COPY . /openvpn-monitor
 
-# Prepare environment
-RUN pip install /openvpn-monitor gunicorn
-RUN apk del .build-dependencies
-RUN apk add --no-cache geoip python2
-
 # Prepare config
 COPY server.mustache /templates/
 
 WORKDIR /openvpn-monitor
+
+# Prepare environment
+RUN pip install openvpn-monitor gunicorn
+RUN apk del .build-dependencies
+RUN apk add --no-cache geoip python2
 
 EXPOSE 80
 
