@@ -12,7 +12,6 @@
 	"latitude": "40.72",
 	"longitude": "-74",
 	"maps": true,
-	"geoip_data": "/var/lib/GeoIP/GeoLite2-City.mmdb",
 	"datetime_format":"%d/%m/%Y %H:%M:%S",
 	"vpns": [
 		{ 
@@ -30,7 +29,6 @@
 	"latitude": "str",
 	"longitude": "str",
 	"maps": "bool",
-	"geoip_data": "str",
 	"datetime_format": "str",
 	"vpns": [
 		{
