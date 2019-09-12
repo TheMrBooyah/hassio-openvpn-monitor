@@ -2,10 +2,8 @@
 set -e
 CONFIG_PATH="/data/options.json"
 
-echo "TOKEN: $HASSIO_TOKEN"
-
 curl -X GET \
-    -H "X-HASSIO-KEY: $HASSIO_TOKEN" \
+    -H "x-ha-access: $HASSIO_TOKEN" \
     -H "Content-Type: application/json" \
     -o "/data/config.json" \
     http://hassio/homeassistant/api/config
