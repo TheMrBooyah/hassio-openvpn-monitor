@@ -8,9 +8,7 @@ curl -X GET \
     -o "/data/config.json" \
     http://hassio/homeassistant/api/config
 
-cat /data/config.json
-
-mustache-cli $CONFIG_PATH /templates/server.mustache --override data.config.json > ./openvpn-monitor.conf
+mustache-cli $CONFIG_PATH /templates/server.mustache --override /data/config.json > ./openvpn-monitor.conf
 
 cat ./openvpn-monitor.conf
 
