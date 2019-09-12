@@ -2,6 +2,8 @@
 set -e
 CONFIG_PATH="/data/options.json"
 
+echo "TOKEN: $HASSIO_TOKEN"
+
 curl -X GET \
     -H "X-HASSIO-KEY: $HASSIO_TOKEN" \
     -H "Content-Type: application/json" \
