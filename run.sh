@@ -10,7 +10,7 @@ curl -X GET \
 
 cat /data/config.json
 
-mustache-cli $CONFIG_PATH /templates/server.mustache > ./openvpn-monitor.conf
+mustache-cli $CONFIG_PATH /templates/server.mustache --override data.config.json > ./openvpn-monitor.conf
 
 cat ./openvpn-monitor.conf
 
