@@ -39,7 +39,7 @@
 	]
   },
   "ports": {
-	"80/tcp": 80
+	"80/tcp": 8234
 	},
   "privileged": ["NET_ADMIN"],
   "homeassistant_api": true
